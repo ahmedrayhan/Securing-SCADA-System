@@ -18,11 +18,11 @@
 % should not be used}
 }
 
-\author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address}
+\author{\IEEEauthorblockN{M Rayhan Ahmed Mithu}
+\IEEEauthorblockA{\textit{Computer Science Department} \\
+\textit{Tennessee Technological University}\\
+Cookeville,TN,USA \\
+mmithu42@students.tntech.edu}
 \and
 \IEEEauthorblockN{Denis Ulybyshev}
 \IEEEauthorblockA{\textit{Computer Science Department, CEROC} \\
@@ -30,29 +30,29 @@ email address}
 Cookeville, TN, United States of America \\
 dulybyshev@tntech.edu}
 \and
-\IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address}
-\and
-\IEEEauthorblockN{4\textsuperscript{th} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address}
-\and
-\IEEEauthorblockN{5\textsuperscript{th} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address}
-\and
-\IEEEauthorblockN{6\textsuperscript{th} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address}
+% \IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
+% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+% \textit{name of organization (of Aff.)}\\
+% City, Country \\
+% email address}
+% \and
+% \IEEEauthorblockN{4\textsuperscript{th} Given Name Surname}
+% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+% \textit{name of organization (of Aff.)}\\
+% City, Country \\
+% email address}
+% \and
+% \IEEEauthorblockN{5\textsuperscript{th} Given Name Surname}
+% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+% \textit{name of organization (of Aff.)}\\
+% City, Country \\
+% email address}
+% \and
+% \IEEEauthorblockN{6\textsuperscript{th} Given Name Surname}
+% \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+% \textit{name of organization (of Aff.)}\\
+% City, Country \\
+% email address}
 }
 
 \maketitle
@@ -71,6 +71,7 @@ Industrial control system (ICS) is the technology used to automate the manufactu
 
 
 \section{Security in ICS}
+Industrial control system was initially designed to operate within a close environment and manage the overall system. However, this has changed as the ICS network is now globally connected via the internet technology. The global connection has a lot of benefits that includes managing multiple field sites with thousands of devices in different location from one control center, faster data access and and inseparability among devices with different communication protocols. It also exposed the industrial control system to all the vulnerabilities and security threats that exists in the commercial network.Communication among the main components such as programmable logic controller (PLC), supervisory control and data acquisition (SCADA), Control devices is what makes this whole system functional. The communication protocols for these components are not similar to the typical commercial network protocols. Security was not a big concern when these protocols were designed as the system was kept isolated from the outside world. 
 \begin{figure}[htbp]
 \centering
 \centerline{\includegraphics [width=9cm] {Architecture1.png}}
@@ -80,11 +81,19 @@ Industrial control system (ICS) is the technology used to automate the manufactu
 
 
 \subsection{Software Solutions}\label{AA}
-
+Concerns over the security of industrial control system has led many researchers to look for different security solutions to protect the network. For this paper we focus on the software solutions that are available in the state of the art. Intrusion detection is one of the most popular techniques used to prevent and detect unauthorized action. The same technique with various approaches are proposed by many researchers to use in the industrial network. 
+\par In \cite{c2}, the authors proposed an intrusion detection system that focuses on devices that are connected with serial link. The authors proposed a Snort based intrusion detection system for MODBUS RTU/ASCII communication. The MODBUS traffic is converted to MODBUS TCP/IP and sent to Snort for rule matching. Snort was implemented in two setup, one was in passive mode where the traffic is only monitored by Snort and in inline setup includes rules for dropping packets.
+\par A multi agent intrusion detection system was proposed by Tsan and Kwong \cite{c3} in industrial network. They implemented the unsupervised Ant Colony Clustering Model (ACCM) in the "decision agent" that is responsible for learning and classification of prepossessed data. This implementation shows the improved performance ant-based clustering. The KDD-Cup99 dataset was used for the test evaluation with different clustering algorithms and feature extraction techniques. K-Means clustering achieves 89.17\% average detection rate and  4.29\% false positive rate with the Fast Independent Component Analysis (FastICA) feature extraction.
 \subsection{Observed Gap}
-
+Even though there are a lot of approaches for intrusion detection in ICS are present in the literature, we observe that most of these solutions focus on the network traffic data generated in the control system.  
 \section{Proposed Architecture}
-
+Intrusion detection system is a great method for attack detection and prevention in the commercial network by monitoring network traffic with rule based or anomaly based approach. However, in the industrial network it is not always enough to just monitor the network traffic. It is possible that a sequence of valid commands can lead to a critical situation. As a result, a lot of false positives and false negatives are generated by the IDS. We propose a novel approach where the IDS can validate network traffic with the help from the device generating the traffic. A device state information equivalent to each network packet is created and stored. The device state information is kept in a secure container which can be access upon request. 
+\begin{figure}[htbp]
+\centering
+\centerline{\includegraphics [width=.5\textwidth]{sec_arch.png}}
+\caption{Secure Industrial Control System Architecture}
+\label{fig}
+\end{figure}
 \section{Work in Progress and Future Direction}
 
 \section{Conclusion}
@@ -94,6 +103,9 @@ Industrial control system (ICS) is the technology used to automate the manufactu
 
 \begin{thebibliography}{00}
 \bibitem{c1}Industrial Control Systems (ICS) Market 2018 Global Analysis, Industry Size, Share Leaders, Current Status by Major Key vendors and Trends by Forecast to 2023. https://www.marketwatch.com/press-release/industrial-control-systems-ics-market-2018-global-analysis-industry-size-share-leaders-current-status-by-major-key-vendors-and-trends-by-forecast-to-2023-2018-11-29
+\bibitem{c2}Morris, T., Vaughn, R., \& Dandass, Y. (2012). A retrofit network intrusion detection system for MODBUS RTU and ASCII industrial control systems. Proceedings of the Annual Hawaii International Conference on System Sciences, 2338–2345. https://doi.org/10.1109/HICSS.2012.78
+\bibitem{c3}Tsang, C. H., \& Kwong, S. (2005). Multi-agent intrusion detection system in industrial network using ant colony clustering approach and unsupervised feature extraction. Proceedings of the IEEE International Conference on Industrial Technology, 2005, 51–56. https://doi.org/10.1109/ICIT.2005.1600609
+\bibitem{c4}Kiss, I., Genge, B., Haller, P., & Sebestyen, G. (2014). Data clustering-based anomaly detection in industrial control systems. Proceedings - 2014 IEEE 10th International Conference on Intelligent Computer Communication and Processing, ICCP 2014, 275–281. https://doi.org/10.1109/ICCP.2014.6937009
 \end{thebibliography}
 \vspace{12pt}
 \end{document}
