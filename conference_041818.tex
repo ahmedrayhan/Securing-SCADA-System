@@ -58,7 +58,8 @@ dulybyshev@tntech.edu}
 \maketitle
 
 \begin{abstract}
-
+% Dr. Rogers - pls add a paragraph 
+% Dr. Denis - pls add a paragraph
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -103,6 +104,8 @@ The second component of our architecture is the SCADA components. This component
 \par The state monitor module is responsible for real time monitoring of the device state. The information collected by the image mapping module in the off-line tools component is used in this module to gather the important sate information from the device. State monitor module will have prior knowledge of what information are necessary to represent the state and where the information are kept in the device. 
 \par The device state information collected by the state monitor module will be transferred by the state router module to the node that is computationally more resourceful. This node can perform security analysis to identify if the device is compromised.
 \subsection{Secure Container}
+Proposed solution for protecting data in transit and at rest with providing leakage detection, as well as role-based and attribute-based access control, relies on Secure Mobile Protected Agent with Data (SMPAD). The idea was inspired by an Active Bundle concept [2], [3]. SMPAD is a self-protecting data container that incorporates sensitive data in encrypted form with watermarks, access control policies, metadata, provenance data collector, policy and attribute enforcement kernel. SMPAD can be used to store log files as well as sensor data snapshots. Each separate data subset is encrypted with separate encryption key, generated on-the-fly for each client’s role based on the unique information from the SMPAD execution control flow path. The access control model relies on role-based and attribute-based access control model and guarantees that a client will be able to access only those data subsets from a data container for which the client is authorized [4]. Data container provides tamper-resistance and data integrity. Moreover, SMPAD can detect several types of data leakages that can be made by authorized insiders [1]. The novelty of the proposed solution is that it works in both centralized and decentralized peer-to-peer network architectures. Central Authority (CA) is not required neither for data recipient’s key generation nor for access control policy enforcement.
+%Denis: add SMPAD figure
 
 \subsection{Detection Process}
 Detection process is the most important component of the secure architecture. This process is responsible for intrusion detection in the SCADA environment. Typical intrusion detection system (IDS) uses the network packets to analyze the traffic and generate alert in case of any abnormal activity in the network. However, in SCADA environment, it is not necessary that an abnormal network behavior will always be the reason for intrusion. Often times a series of valid commands can lead to a critical situation in the SCADA environment that will cause serious damage to the infrastructure. The IDS will not generate any alert in that situation as the network traffic will not look suspicious or abnormal.
@@ -112,6 +115,7 @@ Detection process is the most important component of the secure architecture. Th
 \centerline{\includegraphics [width=.5\textwidth]{sec_arch.png}}
 \caption{Secure Industrial Control System Architecture}
 \label{fig}
+%
 \end{figure}
 \section{Work in Progress and Future Direction}
 
